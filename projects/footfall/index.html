@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Footfall Clock - Justin Quillinan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content>
+    <meta name="author" content>
+
+    <!-- Styles -->
+    <link href="../../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <style type="text/css">
+      .page-header {
+        padding-bottom: 8px;
+        margin-bottom: 0px;
+      }
+      .page-header h1 a {
+        color: #333333;
+      }
+      .page-header small a {
+        color: #999999;
+      }
+      .post h2 a {
+        color: #333333;
+      }
+      img {
+        padding: 4px;
+        border 1px solid #aaa
+      }
+    </style>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="span8 offset2">
+          <div class="page-header">
+            <h1><a href="http://justinq.net/projects/footfall/">Footfall Clock</a><small style="float:right" id="credits"><a href="http://justinq.net">Justin Quillinan</a></small></h1>
+          </div>
+          <div class="row-fluid">
+            <div class="span12">
+              <ul class="nav nav-tabs">
+                <!--
+                <li class="active"> <a href="/">home</a> </li>
+                -->
+                <li> <a href="../../">home</a> </li>
+                <!--
+                <li> <a href="/posts.html">posts</a> </li>
+                -->
+                <li> <a href="../../projects">projects</a> </li>
+                <li> <a href="../../publications">publications</a> </li>
+                <!--
+                <li> <a href="/contact.html">contact</a> </li>
+                -->
+              </ul>
+            </div>
+          </div>
+          <div class="row-fluid">
+            <script type="text/javascript" src="js/jCanvaScript.js"> </script>
+<script type="text/javascript" src="js/footfalldata.js"> </script>
+<script type="text/javascript" src="js/footfall.js"> </script>
+
+<p>Click below to start/pause the visualisation. Read the <a href="#description">description</a>.</p>
+<p><canvas id="footfallCanvas" class="footfallCanvas" width="600" height="600" style="margin:auto" onclick="start('footfallCanvas'); return false;"> Your browser doesn’t support canvas. </canvas></p>
+<a name="description"></a>
+<p>The footfall clock is a visualisation for <a href="http://culturehackscotland.com" title="Culture Hack Scotland">Culture Hack Scotland</a> based on 2010 Edinburgh footfall data published by the City of Edinburgh Council. It shows the foot traffic at 19 different locations over the course of a year in the City of Edinburgh. Each point on the clock is a geographic location in Edinburgh. The size of each point is relative to the number of people that passed through it on a given day. The outside circle represents the passing of time, through a full year, starting in January at 12 o’ clock, through June at 6, and back to January.</p>
+<p>The Edinburgh footfall data is published under the <a href="http://www.opendatacommons.org/licenses/by/">Open Data Commons Attribution License</a>. The <a href="http://jcscript.com">jCanvaScript library</a> is published under the <a href="http://www.gnu.org/licenses/gpl-2.0.html" title="GNU General Public License (GPL) Version 2">GNU General Public License (GPL) Version 2</a>. The rest of the footfall clock is published under the <a href="http://creativecommons.org/weblog/entry/4101" title="Woody Guthrie license">Woody Guthrie license</a>. Do whatever you want.</p>
+<p>Here’s the <a href="http://justinq.net/git/?p=footfall.git">source code</a> and the <a href="http://culturehackscotland.com/datasets/edinburghfootfalldata2010FULL.xls">original dataset</a>.</p>
+<script>
+    // start animation on a canvas
+    canvas = document.getElementById('footfallCanvas');
+    canvas.addEventListener("click", go, false);
+    function go() {
+        canvas.removeEventListener("click", go, false);
+        start('footfallCanvas');
+        return false;
+    }
+    // initialise the canvas id (second parameter is fps)
+    jc.clear('footfallCanvas');
+    jc.start('footfallCanvas',25);
+    // set up the click me prompt
+    jc.text("Click Me",250,300,100,"#000000",0);
+</script>
+
+
+<!--
+<ul class="pager">
+  <li class="previous">
+    <a href="#">&larr; previous project</a>
+  </li>
+  <li class="next">
+    <a href="#">next project &rarr;</a>
+  </li>
+</ul>
+<h2>Related posts</h2>
+-->
+
+
+          </div>
+          <hr>
+        </div><!--/span-->
+      </div><!--/row-->
+    </div><!--/.fluid-container-->
+
+  </body>
+</html>
